@@ -1,4 +1,4 @@
-Copyright 2021 name roman name <roman.sekin.90@mail.ru>
+//Copyright 2021 name roman name <roman.sekin.90@mail.ru>
 
 #include <moveStackNew.h>
 #include <gtest/gtest.h>
