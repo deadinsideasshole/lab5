@@ -2,7 +2,7 @@
 
 #include <moveStackNew.h>
 #include <gtest/gtest.h>
-#include <stack_n.hpp>
+#include <stack_n.h>
 
 int getNum(){
   return 4;
