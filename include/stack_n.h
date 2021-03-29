@@ -1,4 +1,4 @@
-//Copyright 2021 name roman name <roman.sekin.90@mail.ru>
+//Copyright 2021 roman <roman.sekin.90@mail.ru>
 #ifndef INCLUDE_STACK_N_HPP_
 #define INCLUDE_STACK_N_HPP_
 
