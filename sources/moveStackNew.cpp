@@ -1,5 +1,3 @@
-//
-//Created by roman on 29.03.2021.
-//
+// Copyright 2021 roman <roman.sekin.90@mail.ru>
 
 #include "moveStackNew.h"
