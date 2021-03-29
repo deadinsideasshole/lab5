@@ -1,27 +1,29 @@
-// Copyright 2020 ivan <ikhonyak@gmail.com>
+// Copyright 2021 roman <roman.sekin.90@mail.ru>
+
 #ifndef INCLUDE_MOVESTACKNEW_HPP_
 #define INCLUDE_MOVESTACKNEW_HPP_
 
-#include <iostream>
 #include <Elem.hpp>
+#include <iostream>
 #include <utility>
 //Задание 1.
 template <typename T>
-class moveStackNew{
+class moveStackNew {
  public:
   moveStackNew();
-  moveStackNew(moveStackNew &elem);//перемещаем stack левосторонней ссылкой.
-  moveStackNew(moveStackNew &&elem);//
+  moveStackNew(moveStackNew& elem);  //перемещаем stack левосторонней ссылкой.
+  moveStackNew(moveStackNew&& elem);  //
   ~moveStackNew();
 
-  auto operator =(moveStackNew<T> &Elem) -> moveStackNew<T>&;
-  auto operator =(moveStackNew<T> &&Elem) -> moveStackNew<T>&;
+  auto operator=(moveStackNew<T>& Elem) -> moveStackNew<T>&;
+  auto operator=(moveStackNew<T>&& Elem) -> moveStackNew<T>&;
   void push(T&& value);
   void push(const T& value);
   void pop();
   const T& head() const;
   [[nodiscard]] size_t size() const;
   [[nodiscard]] bool empty() const;
+
  private:
   Elem<T>* headElem = nullptr;
 };
@@ -33,7 +35,7 @@ auto moveStackNew<T>::operator=(moveStackNew<T>&& elem) -> moveStackNew<T>& {
 }
 
 template <typename T>
-auto moveStackNew<T>::operator =(moveStackNew<T> &Elem) -> moveStackNew<T>&{
+auto moveStackNew<T>::operator=(moveStackNew<T>& Elem) -> moveStackNew<T>& {
   headElem = Elem.headElem;
   Elem.headElem = nullptr;
   return *this;
@@ -56,8 +58,7 @@ moveStackNew<T>::moveStackNew(moveStackNew<T>& elem) {
 
 template <typename T>
 moveStackNew<T>::~moveStackNew<T>() {
-  while (headElem != nullptr)
-    pop();
+  while (headElem != nullptr) pop();
 }
 
 template <typename T>
@@ -73,17 +74,16 @@ void moveStackNew<T>::push(const T& value) {
 }
 
 template <typename T>
-void moveStackNew<T>::pop(){
-  if (headElem == nullptr)
-    throw std::out_of_range("N = 0!");
+void moveStackNew<T>::pop() {
+  if (headElem == nullptr) throw std::out_of_range("N = 0!");
   Elem<T>* link = headElem;
   headElem = headElem->previousElem;
   delete link;
 }
 
 template <typename T>
-const T & moveStackNew<T>::head() const {
-  if (empty()){
+const T& moveStackNew<T>::head() const {
+  if (empty()) {
     throw std::out_of_range("Stack is empty!");
   } else {
     return headElem->elem;
@@ -91,15 +91,15 @@ const T & moveStackNew<T>::head() const {
 }
 
 template <typename T>
-bool moveStackNew<T>::empty() const{
+bool moveStackNew<T>::empty() const {
   return headElem == nullptr;
 }
 
 template <typename T>
 size_t moveStackNew<T>::size() const {
   size_t n = 0;
-  Elem<T> *link = headElem;
-  while (link != nullptr){
+  Elem<T>* link = headElem;
+  while (link != nullptr) {
     ++n;
     link = link->previousElem;
   }
