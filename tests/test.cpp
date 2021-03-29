@@ -1,4 +1,4 @@
-// Copyright 2018 Your Name <your_email>
+// Copyright 2021 Roman <roman.sekin.90@mail.ru>
 
 #include <moveStackNew.h>
 #include <gtest/gtest.h>
